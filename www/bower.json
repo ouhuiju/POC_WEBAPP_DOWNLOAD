@@ -1,0 +1,24 @@
+{
+  "name": "SAIL",
+  "authors": [
+    "IVAN WANG (EUCD-EUC-ISD-OOCLL/ZHA) <ivan.wang@oocl.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Framework7": "framework7#^1.4.2",
+    "jQuery": "^2.2.1",
+    "knockout": "^3.4.0",
+    "when": "^3.7.7"
+  }
+}

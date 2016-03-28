@@ -1,0 +1,36 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="back link">
+                <i class="icon icon-back"></i>
+                <span>Back</span>
+            </a>
+        </div>
+        <div class="center sliding">Download</div>
+    </div>
+</div>
+<!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+<div class="pages navbar-through toolbar-through">
+    <!-- Page, "data-page" contains page name -->
+    <div id="download" data-page="download" class="page">
+        <!-- Scrollable page content -->
+        <div class="page-content">
+            <div class="list-block inset">
+                <ul>
+                    <li class="item-content">
+                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                        <div class="item-inner">
+                            <div class="item-title" data-bind="text:appName">Item with badge</div>
+                            <div class="item-after">
+                                <span class="badge"><a id="progressData" data-bind="visible: progressData!='', text: progressData"></a></span>
+                            </div>
+                            <div class="item-after">
+                                <a id="downloadBtn" class="button button-submit" data-bind="click: downloadBtnClick, text: downloadBtnText"></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

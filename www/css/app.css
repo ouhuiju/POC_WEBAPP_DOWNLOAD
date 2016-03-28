@@ -1,0 +1,10 @@
+/*
+  About Page
+*/
+.about .center{
+    text-align: center;
+}
+.about .appName{
+    font-size: xx-large;
+    font-weight: bold;
+}

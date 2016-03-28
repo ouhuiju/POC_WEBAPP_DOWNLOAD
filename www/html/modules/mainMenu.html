@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>SAIL</title>
+    <!-- Path to Framework7 iOS CSS theme styles-->
+    <link rel="stylesheet" href="../../bower_components/Framework7/dist/css/framework7.ios.min.css">
+    <!-- Path to Framework7 iOS related color styles -->
+    <link rel="stylesheet" href="../../bower_components/Framework7/dist/css/framework7.ios.colors.min.css">
+
+    <link rel="stylesheet" href="../../css/app.css">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <!-- Main Menu Page -->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class-->
+        <div class="view view-main">
+            <!-- Top Navbar-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <!-- We have home navbar without left link-->
+                    <div class="sliding">
+                        <span style="font-weight: bold; font-size: large;">SALE</span>
+                        <span style="font-size: small">  Application</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-through toolbar-through">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="mainMenu" class="page">
+                    <!-- Scrollable page content -->
+                    <div class="page-content">
+                        <div class="list-block media-list inset">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link item-content disabled">
+                                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Customer</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Opportunity</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Interaction</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content disabled">
+                                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Sales Plan</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="about.html" class="item-link item-content">
+                                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">About</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="download.html" class="item-link item-content">
+                                        <div class="item-media"><i class="icon icon-f7"></i></div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Download</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Login Page -->
+    <div class="login-screen">
+        <div class="view">
+            <div class="page">
+                <div class="page-content login-screen-content">
+                    <div class="login-screen-title">Sales All In Lite</div>
+                    <div class="list-block media-list inset">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="text" name="username" placeholder="Username">
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <input type="password" name="password" placeholder="Password">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="list-block media-list inset">
+                        <ul>
+                            <li class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-input">
+                                        <a href="#" class="close-login-screen button button-big active" onclick="mainMenuModule.login()">Login</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--include lib JS file-->
+    <script type="text/javascript" src="../../bower_components/jQuery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/knockout/dist/knockout.js"></script>
+    <script type="text/javascript" src="../../bower_components/Framework7/dist/js/framework7.min.js"></script>
+    <!--include common JS file-->
+    <script type="text/javascript" src="../../js/common/F7.js"></script>
+    <script type="text/javascript" src="../../js/common/interfaces.js"></script>
+    <script type="text/javascript" src="../../js/common/localize.js"></script>
+    <script type="text/javascript" src="../../js/common/storage.js"></script>
+    <script type="text/javascript" src="../../js/common/webViewJavascriptBridge.js"></script>
+    <script type="text/javascript" src="../../js/common/common.js"></script>
+    <!--include module JS file-->
+    <script type="text/javascript" src="../../js/modules/mainMenu.js"></script>
+    <script type="text/javascript" src="../../js/modules/about.js"></script>
+    <script type="text/javascript" src="../../js/modules/download.js"></script>
+</body>
+
+</html>
