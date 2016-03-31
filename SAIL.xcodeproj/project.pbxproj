@@ -19,6 +19,7 @@
 		8C8C24391C8D7E80008B34EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C8C24371C8D7E80008B34EB /* LaunchScreen.storyboard */; };
 		8C8C24441C8D7E80008B34EB /* SAILTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C24431C8D7E80008B34EB /* SAILTests.m */; };
 		8C8C244F1C8D7E80008B34EB /* SAILUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C8C244E1C8D7E80008B34EB /* SAILUITests.m */; };
+		B1A68DED1CAA0AD700BC0869 /* DownloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A68DEC1CAA0AD700BC0869 /* DownloadHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		8C8C244A1C8D7E80008B34EB /* SAILUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SAILUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8C244E1C8D7E80008B34EB /* SAILUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAILUITests.m; sourceTree = "<group>"; };
 		8C8C24501C8D7E80008B34EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1A68DEB1CAA0AD700BC0869 /* DownloadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadHelper.h; sourceTree = "<group>"; };
+		B1A68DEC1CAA0AD700BC0869 /* DownloadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadHelper.m; sourceTree = "<group>"; };
 		D1BE7A71F0EAEF3BC70B9C0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +138,8 @@
 				8C8C24371C8D7E80008B34EB /* LaunchScreen.storyboard */,
 				8C8C243A1C8D7E80008B34EB /* Info.plist */,
 				8C8C24291C8D7E80008B34EB /* Supporting Files */,
+				B1A68DEB1CAA0AD700BC0869 /* DownloadHelper.h */,
+				B1A68DEC1CAA0AD700BC0869 /* DownloadHelper.m */,
 			);
 			path = SAIL;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				8C8C242E1C8D7E80008B34EB /* AppDelegate.m in Sources */,
 				8C2F60D11C8ECF31001BF19E /* MainViewController.m in Sources */,
 				8C8C242B1C8D7E80008B34EB /* main.m in Sources */,
+				B1A68DED1CAA0AD700BC0869 /* DownloadHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

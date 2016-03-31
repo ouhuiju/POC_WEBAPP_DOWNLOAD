@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "WebViewJavascriptBridge.h"
+#import "DownloadHelper.h"
 
 @interface MainViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIWebView *mainWebView;
-@property (strong, nonatomic) WebViewJavascriptBridge* bridge;
+@property (strong, nonatomic) WebViewJavascriptBridge *bridge;
 
 @end
