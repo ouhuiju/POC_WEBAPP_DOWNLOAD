@@ -13,11 +13,9 @@
 
 @interface MainViewController ()
 
-//@property (nonatomic, strong) MBProgressHUD *hud;
 @property (nonatomic, strong) NSString *lblMessage;
 @property (nonatomic, strong) NSString *lblFileName;
 @property (nonatomic, strong) NSString *progressStr;
-@property (nonatomic, strong) AFHTTPRequestOperation *operation;
 
 @end
 
@@ -28,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-
     [self initBridge];
     [self initWebView];
 
@@ -73,13 +70,9 @@
     _progressStr = @"0";
     // Register a handler in ObjC, can be called by JS
     [_bridge registerHandler:@"download_nativeFunction" handler:^(id data, WVJBResponseCallback responseCallback) {
-        if (!_operation) {
-            [self downloadFile];
+        if (![DownloadHelper shareInstance].operation) {
+            [self downloadFileWithName:[data objectForKey:@"downloadAppName"]];
         }
-        responseCallback(_progressStr);
-        // call a JS handler
-        [_bridge callHandler:@"download_jsFunction" data:@{@"key" : @"caller", @"value" : @"native", @"progressData" : _progressStr} responseCallback:^(id responseData) {
-        }];
     }];
 }
 
@@ -98,60 +91,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)downloadFile{
-    NSString *savedPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/sail.ipa"];
-    [self downloadFileWithOption:nil
-                   withInferface:@"https://oceanstore.oocl.com/oceanstore/app/sail.ipa"
+- (void)downloadFileWithName:(NSString *)fileName {
+    
+    NSString *savedPath = [NSHomeDirectory() stringByAppendingString:[NSString stringWithFormat:@"/Documents/%@.ipa",fileName]];
+    [[DownloadHelper shareInstance] downloadFileWithOption:nil
+                   withInferface:[NSString stringWithFormat:@"https://oceanstore.oocl.com/oceanstore/app/%@.ipa",fileName]
                        savedPath:savedPath
                  downloadSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
                      
                  } downloadFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
                      
                  } progress:^(float progress) {
-
+                     _progressStr = [NSString stringWithFormat:@"%.1f",progress * 100];
+                     [_bridge callHandler:@"download_jsFunction" data:@{@"progressData" : _progressStr} responseCallback:^(id responseData) {
+                     }];
                  }];
-}
-
-/**
- *  @author Jakey
- *
- *  @brief  下载文件
- *
- *  @param paramDic   附加post参数
- *  @param requestURL 请求地址
- *  @param savedPath  保存 在磁盘的位置
- *  @param success    下载成功回调
- *  @param failure    下载失败回调
- *  @param progress   实时下载进度回调
- */
-- (void)downloadFileWithOption:(NSDictionary *)paramDic
-                 withInferface:(NSString*)requestURL
-                     savedPath:(NSString*)savedPath
-               downloadSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
-               downloadFailure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
-                      progress:(void (^)(float progress))progress
-{
-    
-    //沙盒路径    //NSString *savedPath = [NSHomeDirectory() stringByAppendingString:@"/Documents/xxx.zip"];
-    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
-    NSMutableURLRequest *request =[serializer requestWithMethod:@"POST" URLString:requestURL parameters:paramDic error:nil];
-    _operation = [[AFHTTPRequestOperation alloc]initWithRequest:request];
-    [_operation setOutputStream:[NSOutputStream outputStreamToFileAtPath:savedPath append:NO]];
-    [_operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
-        float p = (float)totalBytesRead / totalBytesExpectedToRead;
-        progress(p);
-//        NSLog(@"download：%f", p);
-        _progressStr = [NSString stringWithFormat:@"%.0f",p * 100];
-    }];
-    [_operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(operation,responseObject);
-        NSLog(@"下载成功");
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        success(operation,error);
-        NSLog(@"下载失败");
-        
-    }];
-    [_operation start];
 }
 
 @end
